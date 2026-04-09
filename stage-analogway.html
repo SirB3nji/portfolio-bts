@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stage Analog Way — Portfolio Benjamin CHERCHI</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root { --page-color: var(--c-analog); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+  @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<button class="hamburger">☰</button>
+<div class="overlay"></div>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand">
+    <div class="brand-avatar">BC</div>
+    <div class="brand-text"><div class="name">Benjamin CHERCHI</div><div class="role">BTS SIO · SISR</div></div>
+  </a>
+  <div class="nav-section">
+    <span class="nav-label">Navigation</span>
+    <a href="index.html" class="nav-link" style="--link-color:#111"><span class="nav-dot" style="background:#111"></span> Accueil</a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Stages</span>
+    <a href="stage-cg77.html" class="nav-link" style="--link-color:var(--c-cg77)"><span class="nav-dot" style="background:var(--c-cg77)"></span> Conseil Départ. 77</a>
+    <a href="stage-analogway.html" class="nav-link active" style="--link-color:var(--c-analog)"><span class="nav-dot" style="background:var(--c-analog)"></span> Analog Way SAS</a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Formation</span>
+    <a href="tp.html" class="nav-link" style="--link-color:var(--c-tp)"><span class="nav-dot" style="background:var(--c-tp)"></span> Travaux Pratiques</a>
+    <a href="veille.html" class="nav-link" style="--link-color:var(--c-veille)"><span class="nav-dot" style="background:var(--c-veille)"></span> Veille Technologique</a>
+    <a href="competences.html" class="nav-link" style="--link-color:var(--c-skills)"><span class="nav-dot" style="background:var(--c-skills)"></span> Compétences</a>
+  </div>
+  <div class="sidebar-footer">
+    <span class="footer-link">📍 Antony (92)</span>
+    <span class="footer-link">🗓 Stage 2 · 2026</span>
+  </div>
+</nav>
+
+<main class="main">
+  <header class="page-header">
+    <div class="page-badge">📡 Stage 2 — Secteur Privé · High-Tech</div>
+    <h1 class="page-title">Analog Way <span>SAS</span><br><em style="font-family:var(--font-display);font-style:italic;font-weight:300;font-size:0.55em;color:var(--text-muted)">Antony (92)</em></h1>
+    <p class="page-subtitle">Stage de deuxième année au sein du service IT d'Analog Way, spécialiste du traitement et de la gestion d'images vidéo haute définition pour l'événementiel professionnel.</p>
+    <div class="page-meta">
+      <div class="meta-item"><span class="meta-label">Entreprise</span><span class="meta-value">Analog Way SAS</span></div>
+      <div class="meta-item"><span class="meta-label">Lieu</span><span class="meta-value">Antony (92)</span></div>
+      <div class="meta-item"><span class="meta-label">Durée</span><span class="meta-value colored">6 à 8 semaines</span></div>
+      <div class="meta-item"><span class="meta-label">Année</span><span class="meta-value">BTS 2ème année · 2026</span></div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- BENTO OVERVIEW -->
+    <div class="bento fade-in" style="margin-bottom:3rem">
+      <div class="bento-card col-5" style="background:var(--page-color);color:white;border-color:var(--page-color);min-height:240px">
+        <div class="bc-icon" style="font-size:2.5rem">📡</div>
+        <div class="bc-title" style="color:white">Analog Way SAS</div>
+        <p class="bc-desc" style="color:rgba(255,255,255,0.8)">Entreprise spécialisée dans le traitement d'image AV pour l'événementiel, la diffusion et la visualisation professionnelle. Solutions de mixage vidéo multi-écrans utilisées dans les grands événements mondiaux.</p>
+      </div>
+      <div class="bento-card col-7">
+        <div class="bc-eyebrow">Environnement technique</div>
+        <div class="bc-title" style="font-size:1.1rem">Infrastructure IT<br>d'une PME innovante</div>
+        <div class="two-col" style="margin-top:1.25rem">
+          <div>
+            <p style="font-family:var(--font-mono);font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Systèmes</p>
+            <div class="tags">
+              <span class="tag accent">Windows Server</span><span class="tag">Linux</span><span class="tag">VMware</span><span class="tag">Active Directory</span>
+            </div>
+          </div>
+          <div>
+            <p style="font-family:var(--font-mono);font-size:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem">Réseau</p>
+            <div class="tags">
+              <span class="tag accent">VLANs</span><span class="tag">Firewall</span><span class="tag">Wireshark</span><span class="tag">SNMP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOS -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">🖼️</div><div class="section-title">Photos & captures</div></div>
+      <p style="font-family:var(--font-mono);font-size:0.62rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.7">
+        📁 Dépose tes images dans le dossier <code style="background:var(--surface2);padding:.15rem .4rem;border-radius:4px;font-size:.62rem">images/</code> avec les noms indiqués ci-dessous, elles s'afficheront automatiquement.
+      </p>
+      <div class="photo-grid">
+        <div class="photo-frame empty">
+          <img src="images/aw-batiment.jpg" alt="Bâtiment Analog Way">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-batiment.jpg</span><span class="ph-label">Bâtiment / Entrée Analog Way</span></div>
+        </div>
+        <div class="photo-frame empty">
+          <img src="images/aw-serveurs.jpg" alt="Salle serveurs">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-serveurs.jpg</span><span class="ph-label">Salle serveurs / Infrastructure</span></div>
+        </div>
+        <div class="photo-frame empty">
+          <img src="images/aw-produits.jpg" alt="Produits AV">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-produits.jpg</span><span class="ph-label">Produits / Équipements AV</span></div>
+        </div>
+        <div class="photo-frame empty">
+          <img src="images/aw-bureau.jpg" alt="Poste de travail">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-bureau.jpg</span><span class="ph-label">Poste de travail / Bureau</span></div>
+        </div>
+        <div class="photo-frame empty">
+          <img src="images/aw-reseau.jpg" alt="Schéma réseau">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-reseau.jpg</span><span class="ph-label">Schéma réseau / Architecture</span></div>
+        </div>
+        <div class="photo-frame empty">
+          <img src="images/aw-console.jpg" alt="Capture console">
+          <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">aw-console.jpg</span><span class="ph-label">Capture outil / Console</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJETS PHARES -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">🚀</div><div class="section-title">Projets majeurs réalisés</div></div>
+      <div class="bento" style="gap:1rem;margin-bottom:1rem">
+
+        <!-- PROJET 1 : Serveur relay SMTP -->
+        <div class="bento-card col-6" style="border-top:5px solid var(--c-analog)">
+          <div class="bc-eyebrow">Projet 1 — Infrastructure mail</div>
+          <div class="bc-title" style="font-size:1.1rem">Serveur relay SMTP<br>sur Debian 12</div>
+          <p class="bc-desc" style="margin-top:.5rem">
+            Installation et configuration complète d'un serveur relay SMTP sous Debian 12 (Bookworm) permettant à l'infrastructure interne d'envoyer des e-mails via Microsoft 365.<br><br>
+            La particularité du projet était la mise en place de l'authentification <strong>OAuth2 Microsoft</strong> (Modern Auth) à la place des mots de passe classiques, conformément aux nouvelles exigences de sécurité de Microsoft qui a déprécié l'authentification basique pour Exchange Online.<br><br>
+            Configuration de <strong>Postfix</strong> comme agent de transport, intégration avec la bibliothèque <strong>SASL</strong>, enregistrement d'une application dans <strong>Azure AD</strong> pour obtenir les tokens OAuth2, et mise en place des certificats TLS pour le chiffrement des échanges.
+          </p>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">Debian 12</span>
+            <span class="tag accent">Postfix</span>
+            <span class="tag">OAuth2</span>
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Azure AD</span>
+            <span class="tag">SMTP / TLS</span>
+            <span class="tag">SASL</span>
+          </div>
+        </div>
+
+        <!-- PROJET 2 : Autopilot MDM -->
+        <div class="bento-card col-6" style="border-top:5px solid var(--c-analog)">
+          <div class="bc-eyebrow">Projet 2 — Gestion de parc</div>
+          <div class="bc-title" style="font-size:1.1rem">Mise en place de<br>Microsoft Autopilot (MDM)</div>
+          <p class="bc-desc" style="margin-top:.5rem">
+            Déploiement et configuration de <strong>Windows Autopilot</strong> pour automatiser la mise en service des nouveaux postes de travail Windows sans intervention manuelle du service informatique.<br><br>
+            Le principe : dès qu'un PC est allumé pour la première fois, Autopilot se connecte à <strong>Microsoft Intune</strong> (MDM), applique automatiquement le profil de configuration de l'entreprise, rejoint le domaine Azure AD, installe les applications métier et configure les paramètres de sécurité — le tout sans que l'informaticien n'ait à toucher physiquement la machine.<br><br>
+            Configuration des profils Autopilot dans le portail <strong>Intune</strong>, enregistrement des machines par leur hash matériel, paramétrage des politiques de conformité et des applications à déployer automatiquement.
+          </p>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">Windows Autopilot</span>
+            <span class="tag accent">Microsoft Intune</span>
+            <span class="tag">MDM</span>
+            <span class="tag">Azure AD</span>
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Zero-Touch</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MISSIONS -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">📋</div><div class="section-title">Autres missions réalisées</div></div>
+      <div class="card-grid">
+        <div class="mission-card">
+          <div class="mission-num">Mission 01</div>
+          <div class="mission-title">Administration des systèmes</div>
+          <div class="mission-desc">Gestion et maintenance des serveurs Windows Server et Linux. Mise à jour des systèmes, gestion des droits utilisateurs, résolution d'incidents de niveau 2 et 3.</div>
+          <div class="tags"><span class="tag accent">Windows Server</span><span class="tag">Linux</span><span class="tag">AD</span></div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-num">Mission 02</div>
+          <div class="mission-title">Gestion réseau avancée</div>
+          <div class="mission-desc">Configuration et administration de l'infrastructure réseau : VLANs, routage inter-VLAN, pare-feux, surveillance du trafic et résolution de problèmes.</div>
+          <div class="tags"><span class="tag accent">VLANs</span><span class="tag">Routage</span><span class="tag">Firewall</span><span class="tag">Wireshark</span></div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-num">Mission 03</div>
+          <div class="mission-title">Support & déploiement postes</div>
+          <div class="mission-desc">Préparation et déploiement de nouvelles stations de travail pour les équipes R&D et commerciales. Configuration, installation et intégration au domaine.</div>
+          <div class="tags"><span class="tag accent">Déploiement</span><span class="tag">GPO</span><span class="tag">MDT</span></div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-num">Mission 04</div>
+          <div class="mission-title">Supervision & monitoring</div>
+          <div class="mission-desc">Mise en place d'outils de supervision pour surveiller l'état de santé de l'infrastructure. Paramétrage des alertes et tableaux de bord.</div>
+          <div class="tags"><span class="tag accent">Supervision</span><span class="tag">SNMP</span><span class="tag">Zabbix</span></div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-num">Mission 05</div>
+          <div class="mission-title">Sécurité informatique</div>
+          <div class="mission-desc">Mise en œuvre des politiques de sécurité : gestion des accès, droits AD, segmentation réseau, analyse des logs, application des mises à jour correctives.</div>
+          <div class="tags"><span class="tag accent">Sécurité</span><span class="tag">GPO</span><span class="tag">Logs</span></div>
+        </div>
+        <div class="mission-card">
+          <div class="mission-num">Mission 06</div>
+          <div class="mission-title">Documentation technique</div>
+          <div class="mission-desc">Rédaction de procédures d'exploitation, fiches techniques, schémas d'architecture réseau et guides d'installation.</div>
+          <div class="tags"><span class="tag">Confluence</span><span class="tag">Draw.io</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPÉTENCES -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">⚙️</div><div class="section-title">Compétences développées</div></div>
+      <div class="two-col">
+        <div>
+          <p style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Systèmes & Virtualisation</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Windows Server 2019/2022</span><span class="skill-pct">75%</span></div><div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Linux (Debian/Ubuntu)</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Active Directory / GPO</span><span class="skill-pct">70%</span></div><div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Virtualisation</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div></div>
+        </div>
+        <div>
+          <p style="font-family:var(--font-mono);font-size:0.62rem;text-transform:uppercase;letter-spacing:.1em;color:var(--text-muted);margin-bottom:1rem">Réseau & Sécurité</p>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">VLANs / Routage inter-VLAN</span><span class="skill-pct">72%</span></div><div class="skill-bar"><div class="skill-fill" data-width="72%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Firewall / Segmentation</span><span class="skill-pct">65%</span></div><div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Supervision réseau</span><span class="skill-pct">60%</span></div><div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div></div>
+          <div class="skill-item"><div class="skill-header"><span class="skill-name">Wireshark / Analyse trafic</span><span class="skill-pct">55%</span></div><div class="skill-bar"><div class="skill-fill" data-width="55%"></div></div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMPARATIF -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">🆚</div><div class="section-title">Comparatif des deux stages</div></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Critère</th><th style="color:var(--c-cg77)">🏛 Stage CG77</th><th style="color:white">📡 Stage Analog Way</th></tr></thead>
+          <tbody>
+            <tr><td>Secteur</td><td>Public (collectivité)</td><td>Privé (high-tech / AV)</td></tr>
+            <tr><td>Niveau technique</td><td>Initiation / N1–N2</td><td>Avancé / N2–N3</td></tr>
+            <tr><td>Environnement réseau</td><td>LAN administré, VLAN basiques</td><td>Infrastructure segmentée complexe</td></tr>
+            <tr><td>Outils clés</td><td>GLPI, OpenNMS, AD</td><td>Windows Server, AD, Supervision, Firewall</td></tr>
+            <tr><td>Autonomie</td><td>Encadré, avec tuteur</td><td>Plus grande autonomie</td></tr>
+            <tr><td>Apport principal</td><td>Support, ITSM, inventaire</td><td>Administration, sécurité, réseau avancé</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- BILAN -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">💡</div><div class="section-title">Bilan & apports</div></div>
+      <div class="card-grid">
+        <div class="card"><div class="card-icon">🚀</div><div class="card-title">Montée en compétences</div><div class="card-desc">Passage d'un niveau support à un rôle plus proche de l'ingénierie systèmes et réseaux, avec des missions plus complexes et plus d'autonomie.</div></div>
+        <div class="card"><div class="card-icon">🏭</div><div class="card-title">Culture d'entreprise privée</div><div class="card-desc">Découverte d'une PME innovante dans le secteur AV/broadcast. Enjeux IT d'une entreprise de R&D avec des contraintes de disponibilité fortes.</div></div>
+        <div class="card"><div class="card-icon">🔐</div><div class="card-title">Sensibilité sécurité</div><div class="card-desc">Approfondissement des bonnes pratiques : gestion des accès, segmentation réseau, journalisation et conformité des configurations.</div></div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

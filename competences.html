@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compétences — Portfolio Benji</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root { --page-color: var(--c-skills); }
+  .comp-block {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+  }
+  .comp-block-header {
+    background: var(--surface2);
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .comp-block-icon { font-size: 1.1rem; }
+  .comp-block-title { font-family: var(--font-display); font-size: 0.975rem; font-weight: 700; }
+  .comp-block-badge {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    background: rgba(244,114,182,0.1);
+    border: 1px solid var(--page-color);
+    color: var(--page-color);
+    padding: 0.2rem 0.55rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .comp-block-body { padding: 1.5rem; }
+  .comp-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  @media (max-width: 700px) { .comp-row { grid-template-columns: 1fr; } }
+  .level-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.2rem 0.55rem;
+    border-radius: 6px;
+  }
+  .level-1 { background: rgba(52,211,153,0.1); color: var(--c-tp); border: 1px solid var(--c-tp); }
+  .level-2 { background: rgba(56,189,248,0.1); color: var(--c-cg77); border: 1px solid var(--c-cg77); }
+  .level-3 { background: rgba(167,139,250,0.1); color: var(--c-analog); border: 1px solid var(--c-analog); }
+  .radar-wrap {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+  .soft-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 1rem; }
+  .soft-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem;
+    text-align: center;
+    transition: all var(--transition);
+  }
+  .soft-card:hover { border-color: var(--page-color); }
+  .soft-icon { font-size: 2rem; margin-bottom: 0.6rem; }
+  .soft-name { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.35rem; }
+  .soft-desc { color: var(--text-muted); font-size: 0.775rem; line-height: 1.55; }
+  .cert-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all var(--transition);
+  }
+  .cert-card:hover { border-color: var(--page-color); }
+  .cert-icon { font-size: 1.75rem; }
+  .cert-name { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; margin-bottom: 0.2rem; }
+  .cert-detail { color: var(--text-muted); font-size: 0.8rem; }
+  .cert-status {
+    margin-left: auto;
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    padding: 0.25rem 0.55rem;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .status-done { background: rgba(52,211,153,0.1); color: var(--c-tp); border: 1px solid var(--c-tp); }
+  .status-wip { background: rgba(251,146,60,0.1); color: var(--c-veille); border: 1px solid var(--c-veille); }
+  .outils-wrap { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+  .outil-pill {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.825rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: all var(--transition);
+  }
+  .outil-pill:hover { border-color: var(--page-color); color: var(--page-color); }
+</style>
+</head>
+<body>
+<button class="hamburger">☰</button>
+<div class="overlay"></div>
+
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand">
+    <div class="brand-avatar">BC</div>
+    <div class="brand-text">
+      <div class="name">Benjamin CHERCHI</div>
+      <div class="role">BTS SIO · SISR</div>
+    </div>
+  </a>
+  <div class="nav-section">
+    <span class="nav-label">Navigation</span>
+    <a href="index.html" class="nav-link" style="--link-color:var(--accent)">
+      <span class="nav-dot" style="background:var(--accent)"></span> Accueil
+    </a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Stages</span>
+    <a href="stage-cg77.html" class="nav-link" style="--link-color:var(--c-cg77)">
+      <span class="nav-dot" style="background:var(--c-cg77)"></span> Conseil Départ. 77
+    </a>
+    <a href="stage-analogway.html" class="nav-link" style="--link-color:var(--c-analog)">
+      <span class="nav-dot" style="background:var(--c-analog)"></span> Analog Way SAS
+    </a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Formations</span>
+    <a href="tp.html" class="nav-link" style="--link-color:var(--c-tp)">
+      <span class="nav-dot" style="background:var(--c-tp)"></span> Travaux Pratiques
+    </a>
+    <a href="veille.html" class="nav-link" style="--link-color:var(--c-veille)">
+      <span class="nav-dot" style="background:var(--c-veille)"></span> Veille Technologique
+    </a>
+    <a href="competences.html" class="nav-link active" style="--link-color:var(--c-skills)">
+      <span class="nav-dot" style="background:var(--c-skills)"></span> Compétences
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    <span class="footer-link">⚡ Référentiel SISR</span>
+    <span class="footer-link">📊 Bilan de compétences</span>
+  </div>
+</nav>
+
+<main class="main">
+  <header class="page-header">
+    <div class="page-badge">⚡ Référentiel BTS SIO SISR</div>
+    <h1 class="page-title">Mes <span>Compétences</span></h1>
+    <p class="page-subtitle">
+      Tableau de bord de mes compétences techniques et transversales, établi selon le référentiel officiel BTS SIO option SISR, enrichi par les deux stages et les travaux pratiques réalisés.
+    </p>
+    <div class="page-meta">
+      <div class="meta-item">
+        <span class="meta-label">Référentiel</span>
+        <span class="meta-value">BTS SIO SISR</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Niveau</span>
+        <span class="meta-value">Bac+2 (en cours)</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Mise à jour</span>
+        <span class="meta-value colored">Avril 2026</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🖧</div>
+        <div class="section-title">Compétences réseau & infrastructure (SISR)</div>
+      </div>
+
+      <div class="comp-block">
+        <div class="comp-block-header">
+          <span class="comp-block-icon">🌐</span>
+          <span class="comp-block-title">Conception & administration réseau</span>
+          <span class="comp-block-badge">SISR 1</span>
+        </div>
+        <div class="comp-block-body">
+          <div class="comp-row">
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Adressage IPv4 / IPv6 & sous-réseaux</span><span class="skill-pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">VLANs & Trunking (802.1Q)</span><span class="skill-pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Protocoles de routage (RIP, OSPF)</span><span class="skill-pct">72%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="72%"></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Services réseau (DHCP, DNS, NTP)</span><span class="skill-pct">78%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="78%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Switching & STP</span><span class="skill-pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Analyse réseau (Wireshark)</span><span class="skill-pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">Cisco IOS</span><span class="tag">Packet Tracer</span><span class="tag">GNS3</span>
+            <span class="tag">TCP/IP</span><span class="tag">OSI</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <div class="comp-block-header">
+          <span class="comp-block-icon">🔐</span>
+          <span class="comp-block-title">Sécurité des réseaux & des systèmes</span>
+          <span class="comp-block-badge">SISR 4</span>
+        </div>
+        <div class="comp-block-body">
+          <div class="comp-row">
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Pare-feu (pfSense, ACL)</span><span class="skill-pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">VPN (IPsec, OpenVPN)</span><span class="skill-pct">68%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="68%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">PKI & certificats SSL/TLS</span><span class="skill-pct">60%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="60%"></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">RADIUS / 802.1X</span><span class="skill-pct">62%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="62%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Supervision (OpenNMS, SNMP)</span><span class="skill-pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Gestion des logs & SIEM</span><span class="skill-pct">55%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="55%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">pfSense</span><span class="tag">OpenVPN</span><span class="tag">IPsec</span>
+            <span class="tag">OpenSSL</span><span class="tag">FreeRADIUS</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <div class="comp-block-header">
+          <span class="comp-block-icon">🖥️</span>
+          <span class="comp-block-title">Administration des systèmes</span>
+          <span class="comp-block-badge">SISR 2–3</span>
+        </div>
+        <div class="comp-block-body">
+          <div class="comp-row">
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Windows Server (AD, DNS, DHCP)</span><span class="skill-pct">75%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="75%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Active Directory & GPO</span><span class="skill-pct">72%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="72%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Linux (Debian / Ubuntu Server)</span><span class="skill-pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">PowerShell</span><span class="skill-pct">68%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="68%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Bash scripting</span><span class="skill-pct">55%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="55%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Virtualisation (VMware / VirtualBox)</span><span class="skill-pct">70%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="70%"></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">Windows Server 2022</span><span class="tag">Debian</span><span class="tag">VMware</span>
+            <span class="tag">PowerShell</span><span class="tag">Bash</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="comp-block">
+        <div class="comp-block-header">
+          <span class="comp-block-icon">🛠️</span>
+          <span class="comp-block-title">Exploitation & support (ITSM)</span>
+          <span class="comp-block-badge">SISR 5</span>
+        </div>
+        <div class="comp-block-body">
+          <div class="comp-row">
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">GLPI — Gestion parc & tickets</span><span class="skill-pct">85%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="85%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Support N1 / N2</span><span class="skill-pct">90%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="90%"></div></div>
+              </div>
+            </div>
+            <div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Rédaction de documentation</span><span class="skill-pct">80%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="80%"></div></div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-header"><span class="skill-name">Gestion d'incidents (ITIL)</span><span class="skill-pct">65%</span></div>
+                <div class="skill-bar"><div class="skill-fill" data-width="65%"></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🤝</div>
+        <div class="section-title">Compétences transversales</div>
+      </div>
+      <div class="soft-grid">
+        <div class="soft-card">
+          <div class="soft-icon">🗣️</div>
+          <div class="soft-name">Communication</div>
+          <div class="soft-desc">Vulgarisation technique auprès d'utilisateurs non-spécialistes, rédaction claire de documentation et comptes rendus.</div>
+        </div>
+        <div class="soft-card">
+          <div class="soft-icon">🧩</div>
+          <div class="soft-name">Résolution de problèmes</div>
+          <div class="soft-desc">Méthode de diagnostic logique, investigation méthodique des incidents, patience et persévérance face aux pannes complexes.</div>
+        </div>
+        <div class="soft-card">
+          <div class="soft-icon">⚡</div>
+          <div class="soft-name">Autonomie</div>
+          <div class="soft-desc">Capacité à prendre des initiatives, à me former de manière autodidacte sur de nouvelles technologies et à progresser sans supervision constante.</div>
+        </div>
+        <div class="soft-card">
+          <div class="soft-icon">📚</div>
+          <div class="soft-name">Veille & curiosité tech</div>
+          <div class="soft-desc">Intérêt constant pour les nouvelles technologies, habitude de veille quotidienne sur la sécurité, les réseaux et l'actualité informatique.</div>
+        </div>
+        <div class="soft-card">
+          <div class="soft-icon">🎯</div>
+          <div class="soft-name">Rigueur</div>
+          <div class="soft-desc">Attention au détail dans les configurations, respect des procédures, traçabilité des interventions et vérification systématique des travaux.</div>
+        </div>
+        <div class="soft-card">
+          <div class="soft-icon">🤜</div>
+          <div class="soft-name">Travail en équipe</div>
+          <div class="soft-desc">Expérience du travail en équipe lors des stages et des projets de formation. Partage des connaissances, entraide et communication proactive.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🔧</div>
+        <div class="section-title">Outils & technologies maîtrisés</div>
+      </div>
+      <div style="margin-bottom:1.25rem">
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-bottom:0.75rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em;">Réseau</p>
+        <div class="outils-wrap">
+          <span class="outil-pill">🌐 Cisco IOS</span>
+          <span class="outil-pill">📦 Packet Tracer</span>
+          <span class="outil-pill">🔬 GNS3</span>
+          <span class="outil-pill">🛡️ pfSense</span>
+          <span class="outil-pill">📡 Wireshark</span>
+          <span class="outil-pill">🔍 nmap</span>
+          <span class="outil-pill">📊 OpenNMS</span>
+        </div>
+      </div>
+      <div style="margin-bottom:1.25rem">
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-bottom:0.75rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em;">Systèmes</p>
+        <div class="outils-wrap">
+          <span class="outil-pill">🪟 Windows Server 2019/2022</span>
+          <span class="outil-pill">🐧 Debian Linux</span>
+          <span class="outil-pill">⚙️ PowerShell</span>
+          <span class="outil-pill">📜 Bash</span>
+          <span class="outil-pill">🖥️ VMware Workstation</span>
+          <span class="outil-pill">📦 VirtualBox</span>
+          <span class="outil-pill">🔑 Active Directory</span>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--text-muted); font-size:0.8rem; margin-bottom:0.75rem; font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.08em;">ITSM & Productivité</p>
+        <div class="outils-wrap">
+          <span class="outil-pill">📋 GLPI</span>
+          <span class="outil-pill">📝 Microsoft 365</span>
+          <span class="outil-pill">🔗 Confluence</span>
+          <span class="outil-pill">📐 Draw.io</span>
+          <span class="outil-pill">💻 VS Code</span>
+          <span class="outil-pill">🎨 HTML/CSS</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🏆</div>
+        <div class="section-title">Formations & certifications</div>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:0.85rem;">
+        <div class="cert-card">
+          <div class="cert-icon">🎓</div>
+          <div>
+            <div class="cert-name">Bac Pro Systèmes Numériques — Option RISC</div>
+            <div class="cert-detail">Lycée · 2020–2023 · Mention : —</div>
+          </div>
+          <span class="cert-status status-done">Obtenu</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📚</div>
+          <div>
+            <div class="cert-name">BTS SIO option SISR</div>
+            <div class="cert-detail">BTS · 2024–2026 · En cours</div>
+          </div>
+          <span class="cert-status status-wip">En cours</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">🌐</div>
+          <div>
+            <div class="cert-name">PIX — Certification numérique</div>
+            <div class="cert-detail">Plateforme PIX · Compétences numériques certifiées</div>
+          </div>
+          <span class="cert-status status-done">Obtenu</span>
+        </div>
+        <div class="cert-card">
+          <div class="cert-icon">📡</div>
+          <div>
+            <div class="cert-name">Cisco Networking Essentials (NetAcad)</div>
+            <div class="cert-detail">Cisco Academy · Bases des réseaux et de l'infrastructure</div>
+          </div>
+          <span class="cert-status status-done">Obtenu</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

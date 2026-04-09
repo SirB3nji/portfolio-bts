@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Veille Technologique — Portfolio Benjamin CHERCHI</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root { --page-color: var(--c-veille); }
+  .two-col { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; }
+  @media(max-width:700px){.two-col{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<button class="hamburger">☰</button>
+<div class="overlay"></div>
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand">
+    <div class="brand-avatar">BC</div>
+    <div class="brand-text"><div class="name">Benjamin CHERCHI</div><div class="role">BTS SIO · SISR</div></div>
+  </a>
+  <div class="nav-section">
+    <span class="nav-label">Navigation</span>
+    <a href="index.html" class="nav-link" style="--link-color:#111"><span class="nav-dot" style="background:#111"></span> Accueil</a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Stages</span>
+    <a href="stage-cg77.html" class="nav-link" style="--link-color:var(--c-cg77)"><span class="nav-dot" style="background:var(--c-cg77)"></span> Conseil Départ. 77</a>
+    <a href="stage-analogway.html" class="nav-link" style="--link-color:var(--c-analog)"><span class="nav-dot" style="background:var(--c-analog)"></span> Analog Way SAS</a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Formation</span>
+    <a href="tp.html" class="nav-link" style="--link-color:var(--c-tp)"><span class="nav-dot" style="background:var(--c-tp)"></span> Travaux Pratiques</a>
+    <a href="veille.html" class="nav-link active" style="--link-color:var(--c-veille)"><span class="nav-dot" style="background:var(--c-veille)"></span> Veille Technologique</a>
+    <a href="competences.html" class="nav-link" style="--link-color:var(--c-skills)"><span class="nav-dot" style="background:var(--c-skills)"></span> Compétences</a>
+  </div>
+  <div class="sidebar-footer">
+    <span class="footer-link">🔭 Veille 2024–2026</span>
+    <span class="footer-link">📌 IA & Sécurité réseau</span>
+  </div>
+</nav>
+
+<main class="main">
+  <header class="page-header">
+    <div class="page-badge">🔭 Veille Technologique — BTS SIO SISR</div>
+    <h1 class="page-title">Sécurité des réseaux<br>& <span>Intelligence Artificielle</span></h1>
+    <p class="page-subtitle">Comment l'IA change-t-elle la façon dont on protège les réseaux informatiques ? Ce dossier explore les nouvelles menaces et les nouvelles défenses.</p>
+    <div class="page-meta">
+      <div class="meta-item"><span class="meta-label">Thème</span><span class="meta-value">Sécurité réseau · IA</span></div>
+      <div class="meta-item"><span class="meta-label">Période</span><span class="meta-value">2024 – 2026</span></div>
+      <div class="meta-item"><span class="meta-label">Fréquence</span><span class="meta-value colored">Mensuelle</span></div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <!-- INTRO BENTO -->
+    <div class="bento fade-in" style="margin-bottom:3rem">
+      <div class="bento-card col-12" style="background:var(--text);color:white;border-color:var(--text)">
+        <div class="bc-eyebrow" style="color:#888">Question de départ</div>
+        <div class="bc-title xl" style="color:white;font-style:italic;font-weight:300">
+          "Comment l'intelligence artificielle transforme-t-elle<br>la sécurité des réseaux informatiques ?"
+        </div>
+        <p class="bc-desc" style="color:#999;margin-top:.75rem;max-width:700px">
+          L'IA est utilisée à la fois pour <strong style="color:white">attaquer</strong> les réseaux (automatiser des virus, contourner des protections) et pour les <strong style="color:white">défendre</strong> (détecter des comportements suspects, réagir plus vite aux attaques). Cette veille explore les deux faces de cette évolution.
+        </p>
+      </div>
+    </div>
+
+    <!-- DEUX GRANDES PARTIES -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">🎯</div><div class="section-title">Les deux grandes tendances</div></div>
+      <div class="two-col" style="margin-bottom:2rem">
+        <div class="bento-card" style="border-top:5px solid var(--c-tp)">
+          <div class="bc-icon">🛡️</div>
+          <div class="bc-title" style="font-size:1.05rem">L'IA pour se défendre</div>
+          <p class="bc-desc">
+            Les outils de sécurité modernes utilisent l'IA pour analyser le trafic réseau en temps réel et repérer des comportements anormaux, comme un employé qui télécharge soudainement des milliers de fichiers à 3h du matin. C'est beaucoup plus efficace que les anciennes règles fixes, car l'IA s'adapte aux nouvelles formes d'attaques sans avoir besoin d'être reprogrammée à chaque fois.
+          </p>
+          <div class="tags" style="margin-top:.75rem"><span class="tag" style="background:var(--c-tp);color:white;border-color:var(--c-tp)">Défense</span><span class="tag">Détection automatique</span><span class="tag">Temps réel</span></div>
+        </div>
+        <div class="bento-card" style="border-top:5px solid var(--c-veille)">
+          <div class="bc-icon">⚠️</div>
+          <div class="bc-title" style="font-size:1.05rem">L'IA pour attaquer</div>
+          <p class="bc-desc">
+            Les pirates informatiques utilisent aussi l'IA : pour créer des faux e-mails très convaincants (phishing), générer des virus qui changent de forme pour éviter d'être détectés, ou tester automatiquement des milliers de mots de passe. Ce qui prenait des semaines peut maintenant se faire en quelques heures.
+          </p>
+          <div class="tags" style="margin-top:.75rem"><span class="tag" style="background:var(--c-veille);color:white;border-color:var(--c-veille)">Menace</span><span class="tag">Phishing IA</span><span class="tag">Malwares</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COMMENT ÇA MARCHE CONCRÈTEMENT -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">🔍</div><div class="section-title">Concrètement, comment ça fonctionne ?</div></div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-icon">📊</div>
+          <div class="card-title">Analyse du comportement réseau</div>
+          <div class="card-desc">L'IA observe le trafic habituel d'un réseau et apprend ce qui est "normal". Quand quelque chose sort de l'ordinaire (connexion depuis un pays étranger, pic de données inhabituel), elle déclenche une alerte automatiquement.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🦠</div>
+          <div class="card-title">Virus qui se camouflent</div>
+          <div class="card-desc">Les anciens antivirus reconnaissaient les virus par leur "signature". Les nouveaux virus générés par IA changent de signature en permanence. Les défenses doivent maintenant analyser le comportement du programme, pas son apparence.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">📧</div>
+          <div class="card-title">Phishing ultra-personnalisé</div>
+          <div class="card-desc">Avant, les faux e-mails étaient facilement repérables (mauvaise orthographe, contenu générique). Avec l'IA, les pirates génèrent des messages qui mentionnent ton prénom, ton entreprise, tes collègues, rendant l'arnaque beaucoup plus crédible.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <div class="card-title">Réponse automatique aux incidents</div>
+          <div class="card-desc">Quand une attaque est détectée, l'IA peut réagir instantanément : bloquer une IP suspecte, isoler une machine infectée, alerter les administrateurs. Sans IA, ces actions pouvaient prendre plusieurs heures d'intervention humaine.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🔐</div>
+          <div class="card-title">Authentification intelligente</div>
+          <div class="card-desc">L'IA peut analyser la façon dont tu tapes au clavier, tes horaires de connexion habituels et ta localisation pour vérifier ton identité, même si quelqu'un a volé ton mot de passe. C'est l'authentification comportementale.</div>
+        </div>
+        <div class="card">
+          <div class="card-icon">🌐</div>
+          <div class="card-title">Partage des menaces en temps réel</div>
+          <div class="card-desc">Des systèmes d'IA partagent des informations sur les nouvelles attaques à l'échelle mondiale. Si une entreprise en Asie détecte un nouveau virus, les défenses d'entreprises en France peuvent être mises à jour en quelques minutes.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOURCES -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">📡</div><div class="section-title">Mes sources de veille</div></div>
+      <div style="display:flex;flex-direction:column;gap:.85rem">
+        <div class="source-card">
+          <div class="source-icon">🛡️</div>
+          <div>
+            <div class="source-type">Site officiel français</div>
+            <div class="source-name">ANSSI — Agence Nationale de la Sécurité des SI</div>
+            <div class="source-desc">L'organisme gouvernemental qui publie des guides et alertes sur les cybermenaces. C'est la référence officielle en France pour la cybersécurité. Leurs rapports sont clairs, fiables et gratuits.</div>
+          </div>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">📰</div>
+          <div>
+            <div class="source-type">Actualité cybersécurité</div>
+            <div class="source-name">The Hacker News & BleepingComputer</div>
+            <div class="source-desc">Deux sites qui publient quotidiennement des articles sur les nouvelles attaques, les failles découvertes et les outils de protection. Accessibles et bien expliqués même sans être expert.</div>
+          </div>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">🎙️</div>
+          <div>
+            <div class="source-type">Podcast français</div>
+            <div class="source-name">No Limit Secu</div>
+            <div class="source-desc">Podcast en français sur la cybersécurité, avec des épisodes thématiques sur des sujets comme les ransomwares, la sécurité des réseaux ou les tendances IA. Idéal pour se tenir informé pendant les trajets.</div>
+          </div>
+        </div>
+        <div class="source-card">
+          <div class="source-icon">📋</div>
+          <div>
+            <div class="source-type">Rapport annuel européen</div>
+            <div class="source-name">ENISA Threat Landscape Report</div>
+            <div class="source-desc">Chaque année, l'agence européenne de cybersécurité publie un bilan des grandes menaces. Une source de chiffres et de tendances très utile pour comprendre où en est la menace globalement.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CE QUE J'EN RETIENS -->
+    <div class="section fade-in">
+      <div class="section-header"><div class="section-icon">💡</div><div class="section-title">Ce que j'en retiens</div></div>
+      <div class="bento" style="gap:1rem">
+        <div class="bento-card col-6" style="background:var(--page-color);color:white;border-color:var(--page-color)">
+          <div class="bc-eyebrow" style="color:rgba(255,255,255,.6)">Conclusion principale</div>
+          <div class="bc-title" style="color:white;font-size:1.05rem">L'IA ne remplace pas les administrateurs réseau, elle les aide à travailler mieux</div>
+          <p class="bc-desc" style="color:rgba(255,255,255,.8);margin-top:.5rem">Les outils IA réduisent le temps de détection d'une attaque de plusieurs heures à quelques secondes. Mais il faut toujours un humain pour interpréter les alertes, prendre les décisions et gérer les cas complexes.</p>
+        </div>
+        <div class="bento-card col-6">
+          <div class="bc-eyebrow">Lien avec ma formation SISR</div>
+          <div class="bc-title" style="font-size:1rem">Des compétences directement concernées</div>
+          <p class="bc-desc" style="margin-top:.5rem">Les outils que j'apprends en SISR — supervision, firewalls, VPN, Active Directory — intègrent de plus en plus l'IA. Comprendre ce contexte me permet de mieux utiliser ces outils et de comprendre pourquoi les configurations que je mets en place sont importantes.</p>
+          <div class="tags" style="margin-top:1rem">
+            <span class="tag accent">IDS/IPS</span><span class="tag">Supervision</span><span class="tag">Firewall</span><span class="tag">SIEM</span>
+          </div>
+        </div>
+        <div class="bento-card col-4 muted" style="text-align:center;justify-content:center;align-items:center">
+          <div class="bc-num">× 3</div>
+          <div class="bc-num-label">plus d'attaques automatisées par IA depuis 2022</div>
+        </div>
+        <div class="bento-card col-4 muted" style="text-align:center;justify-content:center;align-items:center">
+          <div class="bc-num">95%</div>
+          <div class="bc-num-label">des incidents liés à une erreur humaine (phishing, mot de passe faible)</div>
+        </div>
+        <div class="bento-card col-4 muted" style="text-align:center;justify-content:center;align-items:center">
+          <div class="bc-num">&lt; 1s</div>
+          <div class="bc-num-label">temps de réaction d'un système de détection IA moderne</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

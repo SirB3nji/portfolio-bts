@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Travaux Pratiques — Portfolio Benji</title>
+<link rel="stylesheet" href="style.css">
+<style>
+  :root { --page-color: var(--c-tp); }
+  .tp-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: all var(--transition);
+  }
+  .tp-card:hover { border-color: var(--page-color); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0,0,0,0.35); }
+  .tp-card-header {
+    background: var(--surface2);
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .tp-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--page-color);
+    background: rgba(52,211,153,0.1);
+    border: 1px solid var(--page-color);
+    border-radius: 6px;
+    padding: 0.2rem 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  .tp-title { font-family: var(--font-display); font-size: 0.95rem; font-weight: 700; flex: 1; }
+  .tp-body { padding: 1.25rem 1.5rem; }
+  .tp-desc { color: var(--text-muted); font-size: 0.825rem; line-height: 1.7; margin-bottom: 0.75rem; }
+  .tp-photo {
+    margin-top: 1rem;
+    aspect-ratio: 16/9;
+    border: 2px dashed var(--border);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    background: var(--bg);
+    cursor: pointer;
+    transition: all var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  .tp-photo:hover { border-color: var(--page-color); }
+  .tp-photo .ph-label { font-family: var(--font-mono); font-size: 0.6rem; color: var(--text-muted); text-align: center; }
+  .tp-photo input[type="file"] { position: absolute; inset: 0; opacity: 0; cursor: pointer; }
+  .tp-photo img.preview { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .tp-photo .remove-btn { position: absolute; top: 0.4rem; right: 0.4rem; background: rgba(0,0,0,0.7); border: none; border-radius: 50%; width: 22px; height: 22px; color: white; cursor: pointer; font-size: 0.7rem; display: none; align-items: center; justify-content: center; z-index: 10; }
+  .tp-photo.has-image .remove-btn { display: flex; }
+  .tp-photo.has-image .ph-icon, .tp-photo.has-image .ph-label { display: none; }
+  .tp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(310px, 1fr)); gap: 1.25rem; }
+  .category-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--page-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .category-label::after { content:''; flex:1; height:1px; background:var(--border); }
+</style>
+</head>
+<body>
+<button class="hamburger">☰</button>
+<div class="overlay"></div>
+
+<nav class="sidebar">
+  <a href="index.html" class="sidebar-brand">
+    <div class="brand-avatar">BC</div>
+    <div class="brand-text">
+      <div class="name">Benjamin CHERCHI</div>
+      <div class="role">BTS SIO · SISR</div>
+    </div>
+  </a>
+  <div class="nav-section">
+    <span class="nav-label">Navigation</span>
+    <a href="index.html" class="nav-link" style="--link-color:var(--accent)">
+      <span class="nav-dot" style="background:var(--accent)"></span> Accueil
+    </a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Stages</span>
+    <a href="stage-cg77.html" class="nav-link" style="--link-color:var(--c-cg77)">
+      <span class="nav-dot" style="background:var(--c-cg77)"></span> Conseil Départ. 77
+    </a>
+    <a href="stage-analogway.html" class="nav-link" style="--link-color:var(--c-analog)">
+      <span class="nav-dot" style="background:var(--c-analog)"></span> Analog Way SAS
+    </a>
+  </div>
+  <div class="nav-section">
+    <span class="nav-label">Formations</span>
+    <a href="tp.html" class="nav-link active" style="--link-color:var(--c-tp)">
+      <span class="nav-dot" style="background:var(--c-tp)"></span> Travaux Pratiques
+    </a>
+    <a href="veille.html" class="nav-link" style="--link-color:var(--c-veille)">
+      <span class="nav-dot" style="background:var(--c-veille)"></span> Veille Technologique
+    </a>
+    <a href="competences.html" class="nav-link" style="--link-color:var(--c-skills)">
+      <span class="nav-dot" style="background:var(--c-skills)"></span> Compétences
+    </a>
+  </div>
+  <div class="sidebar-footer">
+    <span class="footer-link">🎓 BTS SIO · SISR</span>
+    <span class="footer-link">📅 2024 – 2026</span>
+  </div>
+</nav>
+
+<main class="main">
+  <header class="page-header">
+    <div class="page-badge">🛠️ BTS SIO SISR — Réalisations</div>
+    <h1 class="page-title">Travaux <span>Pratiques</span></h1>
+    <p class="page-subtitle">
+      Ensemble des travaux pratiques réalisés durant ma formation BTS SIO option SISR. Chaque TP correspond à une mise en situation réelle visant à acquérir et valider des compétences en systèmes et réseaux.
+    </p>
+    <div class="page-meta">
+      <div class="meta-item">
+        <span class="meta-label">Formation</span>
+        <span class="meta-value">BTS SIO option SISR</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">Période</span>
+        <span class="meta-value">2024 – 2026</span>
+      </div>
+      <div class="meta-item">
+        <span class="meta-label">TPs réalisés</span>
+        <span class="meta-value colored">20+</span>
+      </div>
+    </div>
+  </header>
+
+  <div class="content">
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🌐</div>
+        <div class="section-title">Réseaux & Infrastructure</div>
+      </div>
+      <div class="tp-grid">
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R01</span>
+            <span class="tp-title">Configuration de VLANs</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Mise en place de VLANs sur des switchs Cisco Catalyst. Configuration des ports en mode access et trunk, routage inter-VLAN via un routeur ou un switch de niveau 3.</p>
+            <div class="tags"><span class="tag accent">Cisco IOS</span><span class="tag">VLANs</span><span class="tag">Trunk</span><span class="tag">802.1Q</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-vlan.jpg" alt="Capture Packet Tracer / GNS3">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-vlan.jpg</span><span class="ph-label">Capture Packet Tracer / GNS3</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R02</span>
+            <span class="tp-title">Protocoles de routage (RIP / OSPF)</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Implémentation et comparaison des protocoles RIPv2 et OSPF sur des topologies multi-routeurs. Analyse de la convergence, des tables de routage et du comportement en cas de panne de lien.</p>
+            <div class="tags"><span class="tag accent">OSPF</span><span class="tag">RIPv2</span><span class="tag">Routage</span><span class="tag">IPv4</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-routage.jpg" alt="Topologie réseau / Tables de routage">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-routage.jpg</span><span class="ph-label">Topologie réseau / Tables de routage</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R03</span>
+            <span class="tp-title">Adressage IPv6</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Configuration d'un réseau IPv6 : adressage statique et automatique (SLAAC, DHCPv6). Compréhension des types d'adresses (link-local, global unicast, multicast) et migration IPv4/IPv6.</p>
+            <div class="tags"><span class="tag accent">IPv6</span><span class="tag">SLAAC</span><span class="tag">DHCPv6</span><span class="tag">Dual Stack</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-ipv6.jpg" alt="Schéma / Configuration IPv6">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-ipv6.jpg</span><span class="ph-label">Schéma / Configuration IPv6</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R04</span>
+            <span class="tp-title">VPN Site-à-Site (IPsec)</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Mise en œuvre d'un tunnel VPN IPsec entre deux sites distants. Configuration des phases IKE (phase 1 et 2), des ACL crypto et vérification du chiffrement du trafic inter-site.</p>
+            <div class="tags"><span class="tag accent">VPN IPsec</span><span class="tag">IKE</span><span class="tag">Chiffrement</span><span class="tag">Tunnel</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-vpn.jpg" alt="Schéma VPN / Capture Wireshark">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-vpn.jpg</span><span class="ph-label">Schéma VPN / Capture Wireshark</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R05</span>
+            <span class="tp-title">Pare-feu & ACL (pfSense)</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Déploiement d'un pare-feu pfSense. Configuration des règles de filtrage par interface, implémentation d'ACL pour contrôler les flux, mise en place du NAT et analyse des logs de sécurité.</p>
+            <div class="tags"><span class="tag accent">pfSense</span><span class="tag">Firewall</span><span class="tag">ACL</span><span class="tag">NAT</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-pfsense.jpg" alt="Interface pfSense / Règles firewall">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-pfsense.jpg</span><span class="ph-label">Interface pfSense / Règles firewall</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-R06</span>
+            <span class="tp-title">Analyse réseau avec Wireshark</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Capture et analyse de trames réseau avec Wireshark. Identification des protocoles (ARP, DNS, DHCP, HTTP, TCP), détection d'anomalies, filtres d'affichage et reconstruction de flux.</p>
+            <div class="tags"><span class="tag accent">Wireshark</span><span class="tag">TCP/IP</span><span class="tag">Analyse trames</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-wireshark.jpg" alt="Capture Wireshark annotée">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-wireshark.jpg</span><span class="ph-label">Capture Wireshark annotée</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🖥️</div>
+        <div class="section-title">Systèmes & Administration</div>
+      </div>
+      <div class="tp-grid">
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S01</span>
+            <span class="tp-title">Active Directory & GPO</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Installation et configuration d'un domaine Active Directory sur Windows Server. Création d'OUs, d'utilisateurs et de groupes, déploiement de GPO pour la gestion des postes clients.</p>
+            <div class="tags"><span class="tag accent">Active Directory</span><span class="tag">GPO</span><span class="tag">Windows Server</span><span class="tag">DNS</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-ad.jpg" alt="Console AD / Structure OU">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-ad.jpg</span><span class="ph-label">Console AD / Structure OU</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S02</span>
+            <span class="tp-title">Services réseau Windows Server</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Déploiement et configuration des services DHCP, DNS et WINS sur Windows Server 2019. Gestion des zones DNS primaires/secondaires, des étendues DHCP et résolution de noms.</p>
+            <div class="tags"><span class="tag accent">DHCP</span><span class="tag">DNS</span><span class="tag">Windows Server</span><span class="tag">WINS</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-winsrv.jpg" alt="Console DNS / DHCP">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-winsrv.jpg</span><span class="ph-label">Console DNS / DHCP</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S03</span>
+            <span class="tp-title">Administration Linux (Debian)</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Administration d'un serveur Debian : gestion des utilisateurs, droits UNIX (chmod, chown), configuration SSH, serveur web Apache, gestion des paquets APT et scripts Bash de base.</p>
+            <div class="tags"><span class="tag accent">Debian</span><span class="tag">Bash</span><span class="tag">SSH</span><span class="tag">Apache</span><span class="tag">chmod</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-linux.jpg" alt="Terminal / Configuration serveur">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-linux.jpg</span><span class="ph-label">Terminal / Configuration serveur</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S04</span>
+            <span class="tp-title">Script PowerShell — Nettoyage postes</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Développement d'un script PowerShell de nettoyage post-session pour des PC de formation sous Windows 11. Gestion de l'élévation UAC, redirection des dossiers shell OneDrive, et fenêtre personnalisée de fin d'exécution.</p>
+            <div class="tags"><span class="tag accent">PowerShell</span><span class="tag">Windows 11</span><span class="tag">UAC</span><span class="tag">OneDrive</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-powershell.jpg" alt="Script PowerShell / Fenêtre résultat">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-powershell.jpg</span><span class="ph-label">Script PowerShell / Fenêtre résultat</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S05</span>
+            <span class="tp-title">Virtualisation (VirtualBox / VMware)</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Création et gestion de machines virtuelles sous VirtualBox et VMware Workstation. Configuration des réseaux NAT, bridge et host-only. Snapshots, clonage et import/export de VMs.</p>
+            <div class="tags"><span class="tag accent">VirtualBox</span><span class="tag">VMware</span><span class="tag">VM</span><span class="tag">NAT</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-virtualbox.jpg" alt="Interface VirtualBox / Topologie VM">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-virtualbox.jpg</span><span class="ph-label">Interface VirtualBox / Topologie VM</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-S06</span>
+            <span class="tp-title">Sauvegarde & Plan de reprise</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Mise en œuvre d'une politique de sauvegarde (3-2-1). Utilisation d'outils de backup, tests de restauration, notion de RTO/RPO et élaboration d'un plan de continuité d'activité simplifié.</p>
+            <div class="tags"><span class="tag accent">Backup</span><span class="tag">PRA/PCA</span><span class="tag">RTO/RPO</span><span class="tag">3-2-1</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-backup.jpg" alt="Schéma plan de sauvegarde">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-backup.jpg</span><span class="ph-label">Schéma plan de sauvegarde</span></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="section fade-in">
+      <div class="section-header">
+        <div class="section-icon">🔐</div>
+        <div class="section-title">Sécurité informatique</div>
+      </div>
+      <div class="tp-grid">
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-SEC01</span>
+            <span class="tp-title">Chiffrement & PKI</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Étude et mise en œuvre du chiffrement symétrique et asymétrique. Création d'une infrastructure PKI simple, génération de certificats SSL/TLS, compréhension des CA et CRL.</p>
+            <div class="tags"><span class="tag accent">PKI</span><span class="tag">SSL/TLS</span><span class="tag">Certificats</span><span class="tag">OpenSSL</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-pki.jpg" alt="Capture / Schéma PKI">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-pki.jpg</span><span class="ph-label">Capture / Schéma PKI</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="tp-card">
+          <div class="tp-card-header">
+            <span class="tp-num">TP-SEC02</span>
+            <span class="tp-title">Authentification RADIUS / 802.1X</span>
+          </div>
+          <div class="tp-body">
+            <p class="tp-desc">Déploiement d'un serveur RADIUS (FreeRADIUS) pour l'authentification réseau 802.1X. Configuration du switch et du supplicant, tests d'authentification par certificat et mot de passe.</p>
+            <div class="tags"><span class="tag accent">RADIUS</span><span class="tag">802.1X</span><span class="tag">FreeRADIUS</span><span class="tag">EAP</span></div>
+            <div class="tp-photo-frame empty">
+              <img src="images/tp-radius.jpg" alt="Schéma 802.1X / Console RADIUS">
+              <div class="ph-placeholder"><span class="ph-icon">📷</span><span class="ph-filename">tp-radius.jpg</span><span class="ph-label">Schéma 802.1X / Console RADIUS</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
